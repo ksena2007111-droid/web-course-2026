@@ -126,6 +126,47 @@ main h2 {
   font-size: 0.95rem;
 }
 
+/* Опыт */
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.job {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background-color: #ffffff;
+  padding: 20px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(91, 63, 214, 0.1);
+}
+
+.job h3 {
+  color: #2b2740;
+}
+
+.job-meta {
+  font-size: 0.9rem;
+  color: #5b3fd6;
+  font-weight: 600;
+}
+
+.job-desc {
+  font-style: italic;
+  color: #5c5678;
+  margin-bottom: 4px;
+}
+
+.job ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 20px;
+}
+
 /* Навыки — «пилюли» */
 
 .skill-list {
