@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f4f2fb;
+  color: #2b2740;
+  line-height: 1.5;
+}
+
+/* ===== Шапка ===== */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: #5b3fd6;
+  color: #ffffff;
+  padding: 24px 8%;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.nav a {
+  color: #e3ddff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.header-main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+}
+
+.avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  object-fit: cover;
+}
+
+.header-text h1 {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.role {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e3ddff;
+  margin-bottom: 4px;
+}
+
+.tagline {
+  font-style: italic;
+  color: #d3c9ff;
+}
+
+/* ===== Основной контент ===== */
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 8%;
+}
+
+main h2 {
+  margin-bottom: 14px;
+  color: #5b3fd6;
+  border-bottom: 2px solid #d3c9ff;
+  padding-bottom: 6px;
+}
+
+.about p {
+  text-align: justify;
+}
+
+/* Образование */
+
+.education ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.education li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background-color: #ffffff;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(91, 63, 214, 0.1);
+}
+
+.edu-title {
+  font-weight: 700;
+}
+
+.edu-place,
+.edu-years {
+  color: #5c5678;
+  font-size: 0.95rem;
+}
+
+/* Навыки — «пилюли» */
+
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill {
+  background-color: #ece7ff;
+  color: #5b3fd6;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.skill:hover {
+  background-color: #5b3fd6;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* ===== Контакты ===== */
+
+.contacts {
+  background-color: #2b2740;
+  color: #ffffff;
+  padding: 32px 8%;
+}
+
+.contacts h2 {
+  color: #ffffff;
+  border-bottom: 2px solid #5b3fd6;
+  margin-bottom: 16px;
+  padding-bottom: 6px;
+}
+
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.contact-list a {
+  color: #e3ddff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.contact-list a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
