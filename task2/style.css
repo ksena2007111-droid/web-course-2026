@@ -129,6 +129,24 @@ ul { list-style: none; }
   flex-direction: column;
   align-items: center;
   gap: 1.2rem;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 12, 14, 0.75);
+  z-index: 0;
+}
+
+.hero h1,
+.hero-sub,
+.hero .btn {
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
