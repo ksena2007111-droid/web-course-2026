@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PsyCRM — CRM-система для психологов</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">Psy<span>CRM</span></div>
+
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <nav class="main-nav">
+    <ul>
+      <li><a href="#about">О продукте</a></li>
+      <li><a href="#features">Возможности</a></li>
+      <li><a href="#pricing">Тарифы</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-nav">Попробовать бесплатно</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Твой путь к порядку в практике</h1>
+      <p>CRM для психологов: клиенты, записи и оплаты в одном месте — без Excel-таблиц и бумажных карточек.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-light">Попробовать бесплатно</a>
+        <a href="#features" class="btn btn-ghost">Узнать больше →</a>
+      </div>
+    </div>
+    <div class="hero-shape" aria-hidden="true">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#8b7cf6"/>
+            <stop offset="100%" stop-color="#3f5efb"/>
+          </linearGradient>
+        </defs>
+        <polygon points="100,10 120,80 190,100 120,120 100,190 80,120 10,100 80,80"
+                 fill="url(#grad1)" opacity="0.9"/>
+        <circle cx="100" cy="100" r="28" fill="#1a1730"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <h2 class="section-title">Возможности</h2>
+    <p class="section-sub">Всё необходимое для ведения частной практики — в одном приложении</p>
+
+    <div class="cards-grid">
+
+      <article class="card">
+        <div class="card-icon">📅</div>
+        <h3>Календарь записей</h3>
+        <p>Клиенты сами выбирают удобное время, вы видите всё расписание на одном экране.</p>
+        <a href="#" class="card-link">Подробнее →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🗂️</div>
+        <h3>Карточки клиентов</h3>
+        <p>История сессий, заметки, документы и согласия — всё привязано к клиенту.</p>
+        <a href="#" class="card-link">Подробнее →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">💳</div>
+        <h3>Учёт оплат</h3>
+        <p>Автоматический расчёт задолженностей и напоминания об оплате сессий.</p>
+        <a href="#" class="card-link">Подробнее →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🔒</div>
+        <h3>Конфиденциальность</h3>
+        <p>Доступ к данным клиентов защищён — только вы видите чувствительную информацию.</p>
+        <a href="#" class="card-link">Подробнее →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="about-dark" id="about">
+    <div class="about-dark-inner">
+      <h2>Один клиент за раз.<br>Полный контроль.</h2>
+      <p>PsyCRM создавалась как личный проект для решения конкретной задачи: систематизировать работу практикующего психолога — от первой заявки до архива завершённых кейсов.</p>
+      <a href="#contact" class="btn btn-light">Попробовать бесплатно</a>
+    </div>
+  </section>
+
+  <section class="feedback" id="contact">
+    <h2 class="section-title">Остались вопросы?</h2>
+    <p class="section-sub">Оставьте заявку — расскажем, как PsyCRM встроится в вашу практику</p>
+
+    <form class="feedback-form" onsubmit="return false;">
+      <div class="form-field">
+        <label for="name">Имя</label>
+        <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-field">
+        <label for="message">Сообщение</label>
+        <textarea id="message" name="message" rows="4" placeholder="Расскажите, что вас интересует"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-dark">Отправить</button>
+    </form>
+  </section>
+
+  <section class="pricing-cta" id="pricing">
+    <h2>Готовы навести порядок в практике?</h2>
+    <a href="#contact" class="btn btn-light">Начать бесплатно</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Продукт</h4>
+      <a href="#features">Возможности</a>
+      <a href="#pricing">Тарифы</a>
+      <a href="#about">О проекте</a>
+    </div>
+    <div class="footer-col">
+      <h4>Поддержка</h4>
+      <a href="#contact">Контакты</a>
+      <a href="#">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4>PsyCRM</h4>
+      <p>Учебный проект, 2026</p>
+    </div>
+  </div>
+  <p class="footer-copy">&copy; 2026 PsyCRM. Все права защищены.</p>
+</footer>
+
+</body>
+</html>
