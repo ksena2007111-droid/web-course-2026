@@ -22,81 +22,140 @@
     <ul>
       <li><a href="#about">О продукте</a></li>
       <li><a href="#features">Возможности</a></li>
-      <li><a href="#pricing">Тарифы</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
       <li><a href="#contact">Контакты</a></li>
     </ul>
-    <a href="#contact" class="btn btn-nav">Попробовать бесплатно</a>
+    <a href="#contact" class="btn btn-dark btn-nav">Начать бесплатно</a>
   </nav>
 </header>
 
 <main>
 
-  <section class="hero">
+  <section class="hero" id="about">
     <div class="hero-text">
-      <h1>Твой путь к порядку в практике</h1>
-      <p>CRM для психологов: клиенты, записи и оплаты в одном месте — без Excel-таблиц и бумажных карточек.</p>
+      <span class="badge">Версия 2.0 уже здесь</span>
+      <h1>Путь к порядку в практике</h1>
+      <p>Celebrate — то есть отпразднуй порядок в данных. CRM для психологов: клиенты, записи и оплаты в одном месте.</p>
       <div class="hero-buttons">
-        <a href="#contact" class="btn btn-light">Попробовать бесплатно</a>
-        <a href="#features" class="btn btn-ghost">Узнать больше →</a>
+        <a href="#contact" class="btn btn-dark">Начать бесплатно</a>
+        <a href="#features" class="btn btn-text">Узнать больше →</a>
       </div>
     </div>
     <div class="hero-shape" aria-hidden="true">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#8b7cf6"/>
+          <linearGradient id="bladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#6c8cff"/>
+            <stop offset="50%" stop-color="#8b7cf6"/>
             <stop offset="100%" stop-color="#3f5efb"/>
           </linearGradient>
         </defs>
-        <polygon points="100,10 120,80 190,100 120,120 100,190 80,120 10,100 80,80"
-                 fill="url(#grad1)" opacity="0.9"/>
-        <circle cx="100" cy="100" r="28" fill="#1a1730"/>
+        <g transform="translate(150,150)">
+          <g id="blades"></g>
+          <circle r="26" fill="url(#bladeGrad)"/>
+        </g>
+        <script type="text/plain"></script>
+        <!-- 12 лепестков "пропеллера" -->
+        <g transform="translate(150,150)">
+          <rect x="-6" y="-140" width="12" height="55" rx="4" fill="url(#bladeGrad)" transform="rotate(0)"/>
+          <rect x="-6" y="-140" width="12" height="55" rx="4" fill="url(#bladeGrad)" transform="rotate(30)"/>
+          <rect x="-6" y="-140" width="12" height="55" rx="4" fill="url(#bladeGrad)" transform="rotate(60)"/>
+          <rect x="-6" y="-140" width="12" height="55" rx="4" fill="url(#bladeGrad)" transform="rotate(90)"/>
+          <rect x="-6" y="-140" width="12" height="55" rx="4" fill="url(#bladeGrad)" transform="rotate(120)"/>
+          <rect x="-6" y="-140" width="12" height="55" rx="4" fill="url(#bladeGrad)" transform="rotate(150)"/>
+          <rect x="-6" y="-140" width="12" height="55" rx="4" fill="url(#bladeGrad)" transform="rotate(180)"/>
+          <rect x="-6" y="-140" width="12" height="55" rx="4" fill="url(#bladeGrad)" transform="rotate(210)"/>
+          <rect x="-6" y="-140" width="12" height="55" rx="4" fill="url(#bladeGrad)" transform="rotate(240)"/>
+          <rect x="-6" y="-140" width="12" height="55" rx="4" fill="url(#bladeGrad)" transform="rotate(270)"/>
+          <rect x="-6" y="-140" width="12" height="55" rx="4" fill="url(#bladeGrad)" transform="rotate(300)"/>
+          <rect x="-6" y="-140" width="12" height="55" rx="4" fill="url(#bladeGrad)" transform="rotate(330)"/>
+          <circle r="26" fill="#1a1730"/>
+        </g>
       </svg>
     </div>
   </section>
 
-  <section class="features" id="features">
-    <h2 class="section-title">Возможности</h2>
-    <p class="section-sub">Всё необходимое для ведения частной практики — в одном приложении</p>
+  <section class="feature-cards">
+    <article class="feature-card">
+      <div class="feature-icon">🗂️</div>
+      <h3>Карточки клиентов</h3>
+      <p>Свяжите все данные клиента: историю сессий, заметки, документы — в одном месте.</p>
+    </article>
+    <article class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <h3>Цели и прогресс</h3>
+      <p>Ставьте и отслеживайте цели практики, разбивая их на понятные задачи.</p>
+    </article>
+  </section>
 
+  <section class="features-dark" id="features">
+    <h2 class="section-title-light">Всё для ведения практики в одном приложении</h2>
     <div class="cards-grid">
 
       <article class="card">
         <div class="card-icon">📅</div>
         <h3>Календарь записей</h3>
-        <p>Клиенты сами выбирают удобное время, вы видите всё расписание на одном экране.</p>
-        <a href="#" class="card-link">Подробнее →</a>
-      </article>
-
-      <article class="card">
-        <div class="card-icon">🗂️</div>
-        <h3>Карточки клиентов</h3>
-        <p>История сессий, заметки, документы и согласия — всё привязано к клиенту.</p>
+        <p>Клиенты сами выбирают время, вы видите расписание на одном экране.</p>
         <a href="#" class="card-link">Подробнее →</a>
       </article>
 
       <article class="card">
         <div class="card-icon">💳</div>
         <h3>Учёт оплат</h3>
-        <p>Автоматический расчёт задолженностей и напоминания об оплате сессий.</p>
+        <p>Автоматический расчёт задолженностей и напоминания об оплате.</p>
         <a href="#" class="card-link">Подробнее →</a>
       </article>
 
       <article class="card">
         <div class="card-icon">🔒</div>
         <h3>Конфиденциальность</h3>
-        <p>Доступ к данным клиентов защищён — только вы видите чувствительную информацию.</p>
+        <p>Доступ к данным клиентов защищён — видите только вы.</p>
+        <a href="#" class="card-link">Подробнее →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🔔</div>
+        <h3>Напоминания</h3>
+        <p>Уведомления о ближайших сессиях и задачах, которые важны прямо сейчас.</p>
         <a href="#" class="card-link">Подробнее →</a>
       </article>
 
     </div>
   </section>
 
-  <section class="about-dark" id="about">
-    <div class="about-dark-inner">
-      <h2>Один клиент за раз.<br>Полный контроль.</h2>
-      <p>PsyCRM создавалась как личный проект для решения конкретной задачи: систематизировать работу практикующего психолога — от первой заявки до архива завершённых кейсов.</p>
-      <a href="#contact" class="btn btn-light">Попробовать бесплатно</a>
+  <section class="glow-cta">
+    <h2>Один клиент за раз.<br>Полный контроль.</h2>
+    <p>PsyCRM создавалась как личный проект — систематизировать работу психолога от первой заявки до архива кейсов.</p>
+    <a href="#contact" class="btn btn-light">Начать бесплатно</a>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <h2 class="section-title-light">Нам доверяют десятки специалистов</h2>
+    <div class="reviews-grid">
+      <article class="review-card">
+        <p>«Больше не теряю контекст по клиентам — всё под рукой, даже спустя месяцы».</p>
+        <div class="review-author">Анна К. <span>Психолог</span></div>
+      </article>
+      <article class="review-card">
+        <p>«Наконец перестала вести заметки в трёх разных местах».</p>
+        <div class="review-author">Мария Л. <span>Частная практика</span></div>
+      </article>
+      <article class="review-card">
+        <p>«Форма записи и напоминания сэкономили мне пару часов в неделю».</p>
+        <div class="review-author">Ирина Д. <span>Психотерапевт</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="signup-banner">
+    <div class="signup-shape" aria-hidden="true"></div>
+    <div class="signup-text">
+      <h2>Зарегистрируйтесь бесплатно уже сегодня</h2>
+      <p>Отпразднуйте порядок в данных — начните вести практику в PsyCRM.</p>
+      <div class="signup-buttons">
+        <a href="#contact" class="btn btn-dark">Начать</a>
+        <a href="#features" class="btn btn-text">Узнать больше →</a>
+      </div>
     </div>
   </section>
 
@@ -124,11 +183,6 @@
     </form>
   </section>
 
-  <section class="pricing-cta" id="pricing">
-    <h2>Готовы навести порядок в практике?</h2>
-    <a href="#contact" class="btn btn-light">Начать бесплатно</a>
-  </section>
-
 </main>
 
 <footer class="site-footer">
@@ -136,7 +190,7 @@
     <div class="footer-col">
       <h4>Продукт</h4>
       <a href="#features">Возможности</a>
-      <a href="#pricing">Тарифы</a>
+      <a href="#reviews">Отзывы</a>
       <a href="#about">О проекте</a>
     </div>
     <div class="footer-col">
