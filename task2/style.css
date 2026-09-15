@@ -1,0 +1,516 @@
+/* ===== Базовые настройки ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #1a1730;
+  background-color: #ffffff;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #1a1730;
+}
+
+.section-sub {
+  color: #5c5678;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+}
+
+/* Кнопки */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.6rem;
+  min-height: 44px;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease, color 0.25s ease;
+}
+
+.btn-light {
+  background-color: #ffffff;
+  color: #1a1730;
+}
+
+.btn-light:hover {
+  background-color: #e8e4ff;
+  transform: scale(1.03);
+}
+
+.btn-dark {
+  background-color: #1a1730;
+  color: #ffffff;
+}
+
+.btn-dark:hover {
+  background-color: #3f2f7a;
+  transform: scale(1.03);
+}
+
+.btn-nav {
+  background-color: #1a1730;
+  color: #ffffff;
+  padding: 0.6rem 1.3rem;
+  min-height: 40px;
+}
+
+.btn-nav:hover {
+  background-color: #3f2f7a;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.btn-ghost:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* ===== ШАПКА (Grid — крупная сетка, Flexbox — меню внутри) ===== */
+.site-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ece7ff;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #1a1730;
+}
+
+.logo span {
+  color: #6c5ce7;
+}
+
+.menu-toggle-checkbox {
+  display: none;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #1a1730;
+  border-radius: 2px;
+}
+
+.main-nav {
+  grid-column: 1 / -1;
+  display: none;
+  width: 100%;
+}
+
+.menu-toggle-checkbox:checked ~ .main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.main-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding-top: 1rem;
+}
+
+.main-nav a {
+  color: #1a1730;
+  font-size: 1rem;
+  display: block;
+  padding: 0.4rem 0;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: #6c5ce7;
+}
+
+/* ===== HERO (тёмный, Grid для сетки, Flexbox для кнопок) ===== */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 3rem 1.2rem;
+  background-color: #12101f;
+  color: #ffffff;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  margin-bottom: 1.5rem;
+  color: #cfc9ee;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.hero-shape svg {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+}
+
+/* ===== FEATURES (Grid — карточки, Flexbox — внутри карточки) ===== */
+.features {
+  padding: 3rem 1.2rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+
+.card {
+  background-color: #f7f5ff;
+  border-radius: 16px;
+  padding: 1.6rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(108, 92, 231, 0.15);
+}
+
+.card-icon {
+  font-size: 1.8rem;
+}
+
+.card h3 {
+  color: #1a1730;
+}
+
+.card p {
+  color: #5c5678;
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.card-link {
+  color: #6c5ce7;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.card-link:hover {
+  color: #3f2f7a;
+}
+
+/* ===== ABOUT DARK (градиентный акцентный блок) ===== */
+.about-dark {
+  background: radial-gradient(circle at 50% 30%, #4b3ba8 0%, #12101f 70%);
+  color: #ffffff;
+  padding: 3.5rem 1.2rem;
+  text-align: center;
+}
+
+.about-dark-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.about-dark h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.about-dark p {
+  color: #d8d2f5;
+}
+
+/* ===== FORM ===== */
+.feedback {
+  padding: 3rem 1.2rem;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a1730;
+}
+
+.form-field input,
+.form-field textarea {
+  padding: 0.7rem 1rem;
+  min-height: 44px;
+  border: 1px solid #ece7ff;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #f7f5ff;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-field input:hover,
+.form-field textarea:hover {
+  border-color: #c9bfff;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: #6c5ce7;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+}
+
+.feedback-form .btn {
+  align-self: flex-start;
+}
+
+/* ===== PRICING CTA ===== */
+.pricing-cta {
+  background-color: #1a1730;
+  color: #ffffff;
+  text-align: center;
+  padding: 3rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.pricing-cta h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  max-width: 400px;
+}
+
+/* ===== FOOTER (Grid — колонки, Flexbox — внутри колонки) ===== */
+.site-footer {
+  background-color: #0d0b19;
+  color: #cfc9ee;
+  padding: 2.5rem 1.2rem 1.5rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-col h4 {
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+.footer-col a {
+  color: #cfc9ee;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+  color: #ffffff;
+}
+
+.footer-copy {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #7a739f;
+  border-top: 1px solid #241f3d;
+  padding-top: 1rem;
+}
+
+/* ===================================================
+   ПЛАНШЕТ: от 768px
+   =================================================== */
+@media (min-width: 768px) {
+
+  .site-header {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    grid-column: unset;
+    width: auto;
+    gap: 2rem;
+  }
+
+  .main-nav ul {
+    flex-direction: row;
+    gap: 1.5rem;
+    padding-top: 0;
+  }
+
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    text-align: left;
+    padding: 4rem 2rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-text p {
+    margin-left: 0;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .features,
+  .feedback {
+    padding: 4rem 2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===================================================
+   ДЕСКТОП: от 1200px
+   =================================================== */
+@media (min-width: 1200px) {
+
+  .site-header,
+  .hero,
+  .features,
+  .feedback,
+  .footer-grid {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .site-header {
+    padding: 1.2rem 0;
+    width: 100%;
+  }
+
+  .hero {
+    padding: 5rem 0;
+  }
+
+  .hero-text h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-shape svg {
+    width: 220px;
+    height: 220px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .features,
+  .feedback {
+    padding: 5rem 0;
+  }
+
+  .footer-grid {
+    padding: 0;
+  }
+}
