@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: 'Space Grotesk', 'Segoe UI', Arial, sans-serif;
   background-color: #0c0c0e;
   color: #ffffff;
   line-height: 1.5;
@@ -19,7 +19,7 @@ ul { list-style: none; }
 
 .section-title {
   font-size: 1.7rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
 }
@@ -135,7 +135,7 @@ ul { list-style: none; }
 
 .nav-links a {
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 700;
   transition: color 0.2s ease;
 }
 .nav-links a:hover { color: #64D0D0; }
@@ -210,7 +210,7 @@ ul { list-style: none; }
 
 .hero-title {
   font-size: 2.6rem;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
@@ -263,7 +263,7 @@ ul { list-style: none; }
   box-shadow: 0 10px 30px rgba(255, 70, 93, 0.15);
 }
 
-.service-card h3 { color: #ffffff; }
+.service-card h3 { color: #ffffff; font-weight: 600; }
 .service-card p { color: #a9a6b4; font-size: 0.95rem; }
 
 /* ===== WORK ===== */
@@ -309,11 +309,10 @@ ul { list-style: none; }
   gap: 0.2rem;
 }
 
-.work-card-info h3 { font-size: 1.1rem; }
+.work-card-info h3 { font-size: 1.1rem; font-weight: 600; }
 .work-card-info span { color: #64D0D0; font-size: 0.85rem; }
 
 /* ===== GALLERY ===== */
-/* ===== GALLERY (редакционная сетка карточек) ===== */
 .gallery {
   padding: 3.5rem 1.2rem;
 }
@@ -351,7 +350,7 @@ ul { list-style: none; }
 
 .gallery-photo img {
   width: 100%;
-  height: 260px;
+  height: 200px;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
@@ -373,7 +372,7 @@ ul { list-style: none; }
   background-color: rgba(255, 70, 93, 0.15);
   color: #FF465D;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   padding: 0.3rem 0.8rem;
@@ -428,49 +427,37 @@ ul { list-style: none; }
   height: 220px;
 }
 
-  .gallery { padding: 4.5rem 2rem; }
+/* Текст в карточках с группой фото — крупнее, с курсор-параллаксом */
+.gallery-card--pair .gallery-text,
+.gallery-card--quad .gallery-text,
+.gallery-card--five .gallery-text {
+  justify-content: center;
+  padding: 1rem;
+}
 
-  .gallery-card {
-    flex-direction: row-reverse;
-    align-items: stretch;
-    padding: 1.2rem;
-  }
+.gallery-text-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
 
-  .gallery-card--reverse {
-    flex-direction: row;
-  }
+.gallery-card--pair .gallery-tag,
+.gallery-card--quad .gallery-tag,
+.gallery-card--five .gallery-tag {
+  font-size: 0.85rem;
+}
 
-  .gallery-photo,
-  .gallery-photo-group {
-    flex: 1 1 55%;
-  }
-
-  .gallery-photo img {
-    height: 100%;
-    min-height: 320px;
-  }
-
-  .gallery-text {
-    flex: 1 1 45%;
-    justify-content: center;
-    padding: 1rem 1.5rem;
-  }
-
-  .gallery-photo-group--quad {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-  .gallery-photo-group--quad img { height: 100%; }
-
-  .gallery-photo-group--five {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto 1fr;
-  }
-  .gallery-photo-group--five img { height: 100%; }
-  .gallery-photo-group--five img:first-child {
-    grid-column: 1 / -1;
-    height: 180px;
-  }
+.gallery-card--pair .gallery-text p,
+.gallery-card--quad .gallery-text p,
+.gallery-card--five .gallery-text p {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
 
 /* ===== SOCIALS STRIP ===== */
 .socials-strip {
@@ -619,16 +606,14 @@ ul { list-style: none; }
 }
 
 .service-card,
-.work-card,
-.gallery-grid img {
+.work-card {
   opacity: 0;
   transform: translateY(20px);
   animation: none;
 }
 
 .reveal.visible .service-card,
-.reveal.visible .work-card,
-.reveal.visible .gallery-grid img {
+.reveal.visible .work-card {
   animation: fadeUp 0.6s ease forwards;
 }
 
@@ -663,11 +648,9 @@ ul { list-style: none; }
   .hero-sub { max-width: 520px; }
 
   .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .services, .work, .gallery, .contact { padding: 4.5rem 2rem; }
+  .services, .work, .contact { padding: 4.5rem 2rem; }
 
   .work-grid { grid-template-columns: repeat(3, 1fr); }
-
-  .gallery-grid { grid-template-columns: repeat(4, 1fr); }
 
   .socials-grid { flex-direction: row; flex-wrap: wrap; justify-content: center; }
 
@@ -682,6 +665,73 @@ ul { list-style: none; }
 
   .footer-copy {
     grid-column: 1 / -1;
+  }
+
+  /* Галерея на планшете/десктопе */
+  .gallery { padding: 4.5rem 2rem; }
+
+  .gallery-card {
+    flex-direction: row-reverse;
+    align-items: stretch;
+    padding: 1.2rem;
+  }
+
+  .gallery-card--reverse {
+    flex-direction: row;
+  }
+
+  /* Одиночные фото — меньше, текст просторнее */
+  .gallery-card--single .gallery-photo {
+    flex: 1 1 36%;
+    max-width: 340px;
+  }
+
+  .gallery-card--single .gallery-photo img {
+    height: 100%;
+    min-height: 240px;
+  }
+
+  .gallery-card--single .gallery-text {
+    flex: 1 1 64%;
+    justify-content: center;
+    padding: 1rem 1.8rem;
+  }
+
+  .gallery-card--single .gallery-text p {
+    font-size: 1.15rem;
+  }
+
+  /* Групповые фото — крупнее блок фото, текст рядом крупным шрифтом */
+  .gallery-photo-group {
+    flex: 1 1 58%;
+  }
+
+  .gallery-card--pair .gallery-text,
+  .gallery-card--quad .gallery-text,
+  .gallery-card--five .gallery-text {
+    flex: 1 1 42%;
+  }
+
+  .gallery-photo-group--quad {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .gallery-photo-group--quad img { height: 100%; }
+
+  .gallery-photo-group--five {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr;
+  }
+  .gallery-photo-group--five img { height: 100%; }
+  .gallery-photo-group--five img:first-child {
+    grid-column: 1 / -1;
+    height: 200px;
+  }
+
+  .gallery-card--pair .gallery-text p,
+  .gallery-card--quad .gallery-text p,
+  .gallery-card--five .gallery-text p {
+    font-size: 2rem;
   }
 }
 
@@ -710,5 +760,9 @@ ul { list-style: none; }
 
   .work-grid { grid-template-columns: repeat(3, 1fr); }
 
-  .gallery-grid { grid-template-columns: repeat(6, 1fr); }
+  .gallery-card--pair .gallery-text p,
+  .gallery-card--quad .gallery-text p,
+  .gallery-card--five .gallery-text p {
+    font-size: 2.4rem;
+  }
 }
