@@ -3,154 +3,169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PsyCRM — CRM для психологов</title>
+<title>MMF Production — Money Making Faculty</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="site-header">
-  <a href="#" class="logo">PsyCRM</a>
+  <a href="#" class="logo">
+    <img src="img/logo_2_mmf.png" alt="MMF Production" class="logo-img">
+  </a>
 
   <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
-  <label for="menu-toggle" class="hamburger">
+  <label for="menu-toggle" class="hamburger" aria-label="Меню">
     <span></span>
     <span></span>
     <span></span>
   </label>
 
   <nav class="main-nav">
-    <a href="#services">Возможности</a>
-    <a href="#about">О продукте</a>
-    <a href="#clients">Отзывы</a>
-    <a href="#contact">Контакты</a>
+    <ul class="nav-links">
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#work">Проекты</a></li>
+      <li><a href="#gallery">Галерея</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+
+    <div class="nav-socials">
+      <span class="nav-socials-title">Мы в соцсетях</span>
+      <a href="https://www.instagram.com/mmf_bsu" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://vk.ru/mmfbsu" target="_blank" rel="noopener">VK</a>
+      <a href="https://t.me/mmf_bsu" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://www.tiktok.com/@ss_mmf" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://youtube.com/@mmfbsu4771" target="_blank" rel="noopener">YouTube</a>
+    </div>
   </nav>
 </header>
 
 <main>
 
-  <section class="hero" style="background-image: url('img/hero-bg.jpg');">
-    <h1>psy&nbsp;crm</h1>
-    <p class="hero-sub">Наводим порядок в данных клиентов — через структуру, автоматизацию и заботу о деталях.</p>
-    <a href="#contact" class="btn btn-outline">Связаться</a>
-  </section>
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="img/project1.jpg">
+      <source src="video/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
 
-  <section class="stats">
-    <div class="stat">
-      <div class="stat-number">400+</div>
-      <div class="stat-label">Специалистов используют PsyCRM</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">120K</div>
-      <div class="stat-label">Карточек клиентов в системе</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">2025</div>
-      <div class="stat-label">Год запуска проекта</div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Money Making Faculty</p>
+      <h1 class="hero-title">MMF<br>PRODUCTION</h1>
+      <p class="hero-sub">Дизайн, съёмка, монтаж и продвижение — полный цикл для брендов и мероприятий.</p>
+      <a href="#contact" class="btn btn-outline">Написать нам</a>
     </div>
   </section>
 
   <section class="services" id="services">
-    <h2 class="section-title">Возможности<br>для практики</h2>
+    <h2 class="section-title">Что мы делаем</h2>
 
     <div class="services-grid">
-      <div class="service-group">
-        <h3>Клиенты</h3>
-        <ul>
-          <li>Карточки клиентов</li>
-          <li>История сессий</li>
-          <li>Заметки и документы</li>
-        </ul>
-      </div>
+      <article class="service-card">
+        <h3>Видеография</h3>
+        <p>Съёмка рекламных роликов, репортажей и коротких форматов под TikTok/Reels.</p>
+      </article>
 
-      <div class="service-group">
-        <h3>Расписание</h3>
-        <ul>
-          <li>Календарь записей</li>
-          <li>Автонапоминания</li>
-          <li>Онлайн-бронирование</li>
-        </ul>
-      </div>
+      <article class="service-card">
+        <h3>Фотография</h3>
+        <p>Продакшн и постпродакшн — от съёмки на мероприятии до финальной обработки.</p>
+      </article>
 
-      <div class="service-group">
-        <h3>Финансы</h3>
-        <ul>
-          <li>Учёт оплат</li>
-          <li>Задолженности</li>
-          <li>Отчёты по доходу</li>
-        </ul>
-      </div>
+      <article class="service-card">
+        <h3>Дизайн</h3>
+        <p>Визуальный стиль, макеты для соцсетей, согласование с партнёрами.</p>
+      </article>
 
-      <div class="service-group">
-        <h3>Безопасность</h3>
-        <ul>
-          <li>Шифрование данных</li>
-          <li>Доступ только у вас</li>
-          <li>Резервные копии</li>
-        </ul>
-      </div>
+      <article class="service-card">
+        <h3>Копирайт</h3>
+        <p>Тексты для рекламы, постов и сценариев видео.</p>
+      </article>
+
+      <article class="service-card">
+        <h3>Продакшн мероприятий</h3>
+        <p>Полная реализация: от концепции до съёмки и обработки материалов.</p>
+      </article>
+
+      <article class="service-card">
+        <h3>SMM</h3>
+        <p>Ведение и продвижение в Instagram, TikTok, VK и Telegram.</p>
+      </article>
     </div>
   </section>
 
-  <section class="projects" id="about">
-    <h2 class="section-title">О продукте</h2>
+  <section class="work" id="work">
+    <h2 class="section-title">Проекты</h2>
 
-    <div class="projects-grid">
+    <div class="work-grid">
 
-      <article class="project-card project-card--wide">
-        <div class="project-card-body">
-          <h3>Личный проект</h3>
-          <p>PsyCRM появилась как решение конкретной задачи — систематизировать работу практикующего психолога от первой заявки до архива кейсов.</p>
-          <span class="project-tags">Концепция · Проектирование · Данные</span>
+      <article class="work-card">
+        <video class="work-video" muted loop playsinline preload="none" poster="img/project2.jpg">
+          <source src="video/project1.mp4" type="video/mp4">
+        </video>
+        <div class="work-card-info">
+          <h3>Проект 1</h3>
+          <span>Видеопродакшн</span>
         </div>
       </article>
 
-      <article class="project-card">
-        <div class="project-card-body">
-          <h3>От идеи до логики данных</h3>
-          <p>Продумана структура хранения клиентской информации без потери контекста.</p>
+      <article class="work-card">
+        <video class="work-video" muted loop playsinline preload="none" poster="img/project3.jpg">
+          <source src="video/project2.mp4" type="video/mp4">
+        </video>
+        <div class="work-card-info">
+          <h3>Проект 2</h3>
+          <span>Мероприятие</span>
         </div>
       </article>
 
-      <article class="project-card">
-        <div class="project-card-body">
-          <h3>Анализ рынка</h3>
-          <p>Изучены существующие решения, учтены их слабые места.</p>
+      <article class="work-card">
+        <video class="work-video" muted loop playsinline preload="none" poster="img/project4.jpg">
+          <source src="video/project3.mp4" type="video/mp4">
+        </video>
+        <div class="work-card-info">
+          <h3>Проект 3</h3>
+          <span>Реклама</span>
         </div>
       </article>
 
     </div>
   </section>
 
-  <section class="tagcloud">
-    <h2 class="section-title-inline">Что делает PsyCRM просто</h2>
-    <p class="tags">
-      Карточки клиентов. Календарь сессий. Напоминания. Учёт оплат.
-      История заметок. Документы клиента. Отчёты по практике. Безопасное хранение.
-      Быстрый поиск. Архив кейсов.
-    </p>
+  <section class="gallery" id="gallery">
+    <h2 class="section-title">Галерея</h2>
+
+    <div class="gallery-grid">
+      <img src="img/project1.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project2.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project3.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project4.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project5.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project6.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project7.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project8.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project9.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project10.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project11.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project12.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project13.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project14.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project15.jpg" alt="Проект MMF Production" loading="lazy">
+      <img src="img/project16.jpg" alt="Проект MMF Production" loading="lazy">
+    </div>
   </section>
 
-  <section class="clients" id="clients">
-    <h2 class="section-title">Отзывы</h2>
-    <div class="clients-grid">
-      <article class="client-quote">
-        <p>«Больше не теряю контекст по клиентам — всё под рукой даже спустя месяцы».</p>
-        <span>Анна К., психолог</span>
-      </article>
-      <article class="client-quote">
-        <p>«Перестала вести заметки в трёх разных местах».</p>
-        <span>Мария Л., частная практика</span>
-      </article>
-      <article class="client-quote">
-        <p>«Напоминания клиентам сэкономили пару часов в неделю».</p>
-        <span>Ирина Д., психотерапевт</span>
-      </article>
+  <section class="socials-strip">
+    <h2 class="section-title">Мы в соцсетях</h2>
+    <div class="socials-grid">
+      <a href="https://www.instagram.com/mmf_bsu" target="_blank" rel="noopener" class="social-link">Instagram</a>
+      <a href="https://vk.ru/mmfbsu" target="_blank" rel="noopener" class="social-link">VK</a>
+      <a href="https://t.me/mmf_bsu" target="_blank" rel="noopener" class="social-link">Telegram</a>
+      <a href="https://www.tiktok.com/@ss_mmf" target="_blank" rel="noopener" class="social-link">TikTok</a>
+      <a href="https://youtube.com/@mmfbsu4771" target="_blank" rel="noopener" class="social-link">YouTube</a>
     </div>
   </section>
 
   <section class="contact" id="contact">
-    <h2 class="section-title">Обсудим ваш случай?</h2>
-    <p class="contact-sub">Оставьте заявку — расскажем, как PsyCRM встроится в вашу практику</p>
+    <h2 class="section-title">Обсудим проект?</h2>
+    <p class="contact-sub">Оставьте заявку — ответим в ближайшее время.</p>
 
     <form class="contact-form" onsubmit="return false;">
       <div class="form-field">
@@ -165,7 +180,7 @@
 
       <div class="form-field">
         <label for="message">Сообщение</label>
-        <textarea id="message" name="message" rows="4" placeholder="Расскажите, что вас интересует"></textarea>
+        <textarea id="message" name="message" rows="4" placeholder="Расскажите о задаче"></textarea>
       </div>
 
       <button type="submit" class="btn btn-solid">Отправить</button>
@@ -175,27 +190,29 @@
 </main>
 
 <footer class="site-footer">
-  <p class="footer-tagline">Ведём практику красиво, некрасиво не ведём</p>
+  <img src="img/logo_3_mmf.png" alt="MMF Production" class="footer-logo">
 
   <div class="footer-grid">
     <div class="footer-col">
-      <h4>Соцсети</h4>
-      <a href="#">Telegram</a>
-      <a href="#">Instagram</a>
-    </div>
-    <div class="footer-col">
-      <h4>Мессенджер</h4>
-      <a href="#">Telegram</a>
-      <a href="#">WhatsApp</a>
-    </div>
-    <div class="footer-col">
       <h4>Контакты</h4>
-      <a href="mailto:hello@psycrm.pro">hello@psycrm.pro</a>
+      <a href="mailto:ksena2007111@gmail.com">ksena2007111@gmail.com</a>
       <a href="tel:+375298144474">+375 29 814-44-74</a>
+      <a href="https://t.me/oleg0vnaa" target="_blank" rel="noopener">Telegram: @oleg0vnaa</a>
+    </div>
+    <div class="footer-col">
+      <h4>Соцсети</h4>
+      <a href="https://www.instagram.com/mmf_bsu" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://vk.ru/mmfbsu" target="_blank" rel="noopener">VK</a>
+      <a href="https://t.me/mmf_bsu" target="_blank" rel="noopener">Telegram</a>
+    </div>
+    <div class="footer-col">
+      <h4>Больше</h4>
+      <a href="https://www.tiktok.com/@ss_mmf" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://youtube.com/@mmfbsu4771" target="_blank" rel="noopener">YouTube</a>
     </div>
   </div>
 
-  <p class="footer-copy">© 2026 PsyCRM</p>
+  <p class="footer-copy">© 2026 MMF Production — Money Making Faculty</p>
 </footer>
 
 </body>
