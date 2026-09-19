@@ -568,7 +568,11 @@ ul { list-style: none; }
   gap: 2rem;
 }
 
-.footer-logo { height: 50px; width: auto; }
+.footer-logo {
+  height: 50px;
+  width: auto;
+  align-self: flex-start;
+}
 
 .footer-grid {
   display: grid;
