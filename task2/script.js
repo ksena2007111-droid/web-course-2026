@@ -1,17 +1,31 @@
 // Анимация появления блоков при скролле
 document.addEventListener('DOMContentLoaded', () => {
   const revealElements = document.querySelectorAll('.reveal');
+  const galleryCards = document.querySelectorAll('.gallery-card');
 
-  const observer = new IntersectionObserver((entries) => {
+  const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        sectionObserver.unobserve(entry.target);
       }
     });
   }, {
     threshold: 0.15
   });
 
-  revealElements.forEach(el => observer.observe(el));
+  revealElements.forEach(el => sectionObserver.observe(el));
+
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        cardObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  galleryCards.forEach(card => cardObserver.observe(card));
 });
