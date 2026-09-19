@@ -1,3 +1,12 @@
+/* ===== Шрифт ===== */
+@font-face {
+  font-family: 'IgraSans';
+  src: url('fonts/IgraSans.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ===== Базовые настройки ===== */
 * {
   box-sizing: border-box;
@@ -6,7 +15,7 @@
 }
 
 body {
-  font-family: 'Space Grotesk', 'Segoe UI', Arial, sans-serif;
+  font-family: 'IgraSans', 'Segoe UI', Arial, sans-serif;
   background-color: #0c0c0e;
   color: #ffffff;
   line-height: 1.5;
@@ -227,20 +236,12 @@ ul { list-style: none; }
 }
 
 @keyframes heroFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===== SERVICES ===== */
-.services {
-  padding: 3.5rem 1.2rem;
-}
+.services { padding: 3.5rem 1.2rem; }
 
 .services-grid {
   display: grid;
@@ -304,18 +305,16 @@ ul { list-style: none; }
   bottom: 0;
   padding: 1.2rem;
   background: linear-gradient(0deg, rgba(0,0,0,0.75), transparent);
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
 }
 
-.work-card-info h3 { font-size: 1.1rem; font-weight: 600; }
-.work-card-info span { color: #64D0D0; font-size: 0.85rem; }
+.work-card-info span {
+  color: #64D0D0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
 
 /* ===== GALLERY ===== */
-.gallery {
-  padding: 3.5rem 1.2rem;
-}
+.gallery { padding: 3.5rem 1.2rem; }
 
 .gallery-list {
   display: flex;
@@ -350,7 +349,7 @@ ul { list-style: none; }
 
 .gallery-photo img {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
@@ -362,8 +361,16 @@ ul { list-style: none; }
 .gallery-text {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 0.3rem 0.5rem 0.6rem;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.gallery-text-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
 }
 
 .gallery-tag {
@@ -371,7 +378,7 @@ ul { list-style: none; }
   width: fit-content;
   background-color: rgba(255, 70, 93, 0.15);
   color: #FF465D;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -384,9 +391,13 @@ ul { list-style: none; }
   color: #64D0D0;
 }
 
+/* Единый крупный стиль текста во ВСЕХ карточках */
 .gallery-text p {
-  color: #c9c6d1;
-  font-size: 0.95rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+  letter-spacing: -0.01em;
 }
 
 /* Группы фото внутри одной карточки */
@@ -408,10 +419,14 @@ ul { list-style: none; }
   transform: scale(1.03);
 }
 
+/* Пара фото — ровный ряд, одинаковая высота, крупнее */
 .gallery-photo-group--pair {
   grid-template-columns: 1fr 1fr;
+  aspect-ratio: 16 / 10;
 }
-.gallery-photo-group--pair img { height: 200px; }
+.gallery-photo-group--pair img {
+  height: 100%;
+}
 
 .gallery-photo-group--quad {
   grid-template-columns: 1fr 1fr;
@@ -425,38 +440,6 @@ ul { list-style: none; }
 .gallery-photo-group--five img:first-child {
   grid-column: 1 / -1;
   height: 220px;
-}
-
-/* Текст в карточках с группой фото — крупнее, с курсор-параллаксом */
-.gallery-card--pair .gallery-text,
-.gallery-card--quad .gallery-text,
-.gallery-card--five .gallery-text {
-  justify-content: center;
-  padding: 1rem;
-}
-
-.gallery-text-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  transition: transform 0.15s ease-out;
-  will-change: transform;
-}
-
-.gallery-card--pair .gallery-tag,
-.gallery-card--quad .gallery-tag,
-.gallery-card--five .gallery-tag {
-  font-size: 0.85rem;
-}
-
-.gallery-card--pair .gallery-text p,
-.gallery-card--quad .gallery-text p,
-.gallery-card--five .gallery-text p {
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1.25;
-  color: #ffffff;
-  letter-spacing: -0.01em;
 }
 
 /* ===== SOCIALS STRIP ===== */
@@ -490,9 +473,7 @@ ul { list-style: none; }
 }
 
 /* ===== CONTACT / FORM ===== */
-.contact {
-  padding: 3.5rem 1.2rem;
-}
+.contact { padding: 3.5rem 1.2rem; }
 
 .contact-sub {
   color: #a9a6b4;
@@ -554,10 +535,7 @@ ul { list-style: none; }
   gap: 2rem;
 }
 
-.footer-logo {
-  height: 50px;
-  width: auto;
-}
+.footer-logo { height: 50px; width: auto; }
 
 .footer-grid {
   display: grid;
@@ -629,14 +607,8 @@ ul { list-style: none; }
 .reveal.visible .work-card:nth-child(3) { animation-delay: 0.2s; }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===================================================
@@ -663,9 +635,7 @@ ul { list-style: none; }
     padding: 3rem 2rem 1.5rem;
   }
 
-  .footer-copy {
-    grid-column: 1 / -1;
-  }
+  .footer-copy { grid-column: 1 / -1; }
 
   /* Галерея на планшете/десктопе */
   .gallery { padding: 4.5rem 2rem; }
@@ -676,11 +646,8 @@ ul { list-style: none; }
     padding: 1.2rem;
   }
 
-  .gallery-card--reverse {
-    flex-direction: row;
-  }
+  .gallery-card--reverse { flex-direction: row; }
 
-  /* Одиночные фото — меньше, текст просторнее */
   .gallery-card--single .gallery-photo {
     flex: 1 1 36%;
     max-width: 340px;
@@ -688,28 +655,20 @@ ul { list-style: none; }
 
   .gallery-card--single .gallery-photo img {
     height: 100%;
-    min-height: 240px;
+    min-height: 260px;
   }
 
-  .gallery-card--single .gallery-text {
-    flex: 1 1 64%;
-    justify-content: center;
+  .gallery-photo-group { flex: 1 1 58%; }
+
+  .gallery-text {
+    flex: 1 1 auto;
     padding: 1rem 1.8rem;
   }
 
-  .gallery-card--single .gallery-text p {
-    font-size: 1.15rem;
-  }
-
-  /* Групповые фото — крупнее блок фото, текст рядом крупным шрифтом */
-  .gallery-photo-group {
-    flex: 1 1 58%;
-  }
-
-  .gallery-card--pair .gallery-text,
-  .gallery-card--quad .gallery-text,
-  .gallery-card--five .gallery-text {
-    flex: 1 1 42%;
+  .gallery-photo-group--pair {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 300px;
   }
 
   .gallery-photo-group--quad {
@@ -728,11 +687,7 @@ ul { list-style: none; }
     height: 200px;
   }
 
-  .gallery-card--pair .gallery-text p,
-  .gallery-card--quad .gallery-text p,
-  .gallery-card--five .gallery-text p {
-    font-size: 2rem;
-  }
+  .gallery-text p { font-size: 2.2rem; }
 }
 
 /* ===================================================
@@ -757,12 +712,7 @@ ul { list-style: none; }
   .hero-title { font-size: 5.5rem; }
 
   .services-grid { grid-template-columns: repeat(3, 1fr); }
-
   .work-grid { grid-template-columns: repeat(3, 1fr); }
 
-  .gallery-card--pair .gallery-text p,
-  .gallery-card--quad .gallery-text p,
-  .gallery-card--five .gallery-text p {
-    font-size: 2.4rem;
-  }
+  .gallery-text p { font-size: 2.6rem; }
 }
