@@ -571,7 +571,10 @@ ul { list-style: none; }
 .footer-logo {
   height: 50px;
   width: auto;
+  max-width: 160px;
+  object-fit: contain;
   align-self: flex-start;
+  flex-shrink: 0;
 }
 
 .footer-grid {
