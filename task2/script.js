@@ -26,9 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   galleryCards.forEach(card => cardObserver.observe(card));
 
   // Текст следует за курсором в карточках с группой фото
-  const parallaxCards = document.querySelectorAll(
-    '.gallery-card--pair, .gallery-card--quad, .gallery-card--five'
-  );
+  const parallaxCards = document.querySelectorAll('.gallery-card');
 
   parallaxCards.forEach(card => {
     const inner = card.querySelector('.gallery-text-inner');
