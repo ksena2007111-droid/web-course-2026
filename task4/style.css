@@ -1,1 +1,173 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f4f2fb;
+  color: #2b2740;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.app-title {
+  font-size: 1.6rem;
+  color: #5b3fd6;
+  text-align: center;
+}
+
+.app-desc {
+  text-align: center;
+  color: #5c5678;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+/* Форма ввода */
+.guess-form {
+  display: flex;
+  gap: 8px;
+}
+
+.guess-input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  min-height: 44px;
+  border: 1px solid #cfc8e8;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  font-family: inherit;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.guess-input:focus {
+  outline: none;
+  border-color: #5b3fd6;
+  box-shadow: 0 0 0 3px rgba(91, 63, 214, 0.15);
+}
+
+.guess-input:disabled {
+  background-color: #ece7ff;
+  color: #a9a3ce;
+  cursor: not-allowed;
+}
+
+.btn {
+  min-height: 44px;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-check {
+  background-color: #5b3fd6;
+  color: #ffffff;
+}
+
+.btn-check:hover {
+  background-color: #4930b0;
+  transform: scale(1.03);
+}
+
+.btn-check:disabled {
+  background-color: #cfc8e8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.error-message {
+  color: #e04b5c;
+  font-size: 0.9rem;
+}
+
+/* Статус-строка: попытки + новая игра */
+.status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.attempts-counter {
+  color: #5c5678;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.btn-new-game {
+  background-color: #ffffff;
+  color: #5b3fd6;
+  border: 1px solid #5b3fd6;
+}
+
+.btn-new-game:hover {
+  background-color: #ece7ff;
+}
+
+.win-message {
+  background-color: #e6f7ee;
+  color: #1c8a52;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* История попыток */
+.history-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 12px 14px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(91, 63, 214, 0.08);
+  font-size: 0.95rem;
+}
+
+.history-guess {
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #2b2740;
+}
+
+.history-result {
+  color: #5c5678;
+}
+
+.history-result .bulls {
+  color: #5b3fd6;
+  font-weight: 600;
+}
+
+.history-result .cows {
+  color: #d69a2d;
+  font-weight: 600;
+}
