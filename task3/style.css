@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f4f2fb;
+  color: #2b2740;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.app-title {
+  font-size: 1.6rem;
+  color: #5b3fd6;
+  text-align: center;
+}
+
+/* Форма добавления */
+.todo-form {
+  display: flex;
+  gap: 8px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  min-height: 44px;
+  border: 1px solid #cfc8e8;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: #5b3fd6;
+  box-shadow: 0 0 0 3px rgba(91, 63, 214, 0.15);
+}
+
+.btn {
+  min-height: 44px;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-add {
+  background-color: #5b3fd6;
+  color: #ffffff;
+}
+
+.btn-add:hover {
+  background-color: #4930b0;
+  transform: scale(1.03);
+}
+
+.warning {
+  color: #e04b5c;
+  font-size: 0.9rem;
+}
+
+/* Фильтры */
+.filters {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-btn {
+  flex: 1;
+  min-height: 40px;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #cfc8e8;
+  border-radius: 999px;
+  background-color: #ffffff;
+  color: #5b3fd6;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-btn:hover {
+  background-color: #ece7ff;
+}
+
+.filter-btn.active {
+  background-color: #5b3fd6;
+  color: #ffffff;
+  border-color: #5b3fd6;
+}
+
+/* Список задач */
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 12px 14px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(91, 63, 214, 0.08);
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  cursor: pointer;
+  accent-color: #5b3fd6;
+}
+
+.todo-text {
+  flex: 1;
+  word-break: break-word;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.btn-delete {
+  min-height: 32px;
+  min-width: 32px;
+  border: none;
+  background-color: transparent;
+  color: #b3add0;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-delete:hover {
+  color: #e04b5c;
+  background-color: #fbe8ea;
+}
+
+.empty-message {
+  text-align: center;
+  color: #a9a3ce;
+  padding: 20px 0;
+  font-size: 0.95rem;
+}
+
+/* Счётчик */
+.counter {
+  text-align: center;
+  color: #5c5678;
+  font-size: 0.95rem;
+}
