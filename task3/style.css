@@ -32,6 +32,7 @@ body {
 /* Форма добавления */
 .todo-form {
   display: flex;
+  align-items: center;
   gap: 8px;
 }
 
@@ -109,7 +110,6 @@ body {
   border-color: #5b3fd6;
 }
 
-/* Список задач */
 .todo-list {
   list-style: none;
   display: flex;
@@ -169,7 +169,6 @@ body {
   font-size: 0.95rem;
 }
 
-/* Счётчик */
 .counter {
   text-align: center;
   color: #5c5678;
