@@ -1,17 +1,17 @@
-// ===== Состояние приложения =====
+
 let todos = [];
 let currentFilter = 'all';
 let nextId = 1;
 
-// ===== Ссылки на DOM-элементы =====
 const form = document.getElementById('todo-form');
 const input = document.getElementById('todo-input');
 const warning = document.getElementById('warning');
 const list = document.getElementById('todo-list');
 const counter = document.getElementById('counter');
 const filterButtons = document.querySelectorAll('.filter-btn');
+const doneCheckbox = document.getElementById('todo-done');
 
-// ===== Добавление задачи =====
+
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -27,22 +27,21 @@ form.addEventListener('submit', (event) => {
   todos.push({
     id: nextId,
     text: text,
-    completed: false
+    completed: doneCheckbox.checked
   });
 
   nextId += 1;
   input.value = '';
+  doneCheckbox.checked = false;
   render();
 });
 
-// Скрыть предупреждение, как только начали печатать заново
 input.addEventListener('input', () => {
   if (!warning.hidden) {
     warning.hidden = true;
   }
 });
 
-// ===== Переключение фильтров =====
 filterButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
     currentFilter = btn.dataset.filter;
@@ -54,7 +53,6 @@ filterButtons.forEach((btn) => {
   });
 });
 
-// ===== Получить задачи по текущему фильтру =====
 function getFilteredTodos() {
   return todos.filter((todo) => {
     if (currentFilter === 'active') return !todo.completed;
@@ -63,7 +61,6 @@ function getFilteredTodos() {
   });
 }
 
-// ===== Создать DOM-элемент одной задачи =====
 function createTodoElement(todo) {
   const li = document.createElement('li');
   li.className = 'todo-item' + (todo.completed ? ' completed' : '');
@@ -92,7 +89,6 @@ function createTodoElement(todo) {
   return li;
 }
 
-// ===== Переключить статус выполнения =====
 function toggleTodo(id) {
   todos = todos.map((todo) =>
     todo.id === id ? { ...todo, completed: !todo.completed } : todo
@@ -100,20 +96,17 @@ function toggleTodo(id) {
   render();
 }
 
-// ===== Удалить задачу =====
 function deleteTodo(id) {
   todos = todos.filter((todo) => todo.id !== id);
   render();
 }
 
-// ===== Обновить счётчик =====
 function updateCounter() {
   const activeCount = todos.filter((todo) => !todo.completed).length;
   const completedCount = todos.filter((todo) => todo.completed).length;
   counter.textContent = `Осталось: ${activeCount}, Выполнено: ${completedCount}`;
 }
 
-// ===== Главная функция отрисовки =====
 function render() {
   list.innerHTML = '';
 
@@ -133,5 +126,4 @@ function render() {
   updateCounter();
 }
 
-// ===== Первый рендер при загрузке =====
 render();
