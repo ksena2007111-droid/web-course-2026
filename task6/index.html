@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Змейка — Лабораторная №6</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="app">
+  <h1 class="app-title">Змейка</h1>
+  <p id="score" class="score">Счёт: 0</p>
+
+  <canvas id="game" width="400" height="400"></canvas>
+
+  <div id="game-over" class="game-over" hidden>
+    <p class="game-over-title">Игра окончена</p>
+    <p id="final-score" class="final-score"></p>
+    <button type="button" id="restart-btn" class="btn-restart">Начать заново</button>
+  </div>
+
+  <p class="hint">Управление: стрелки на клавиатуре</p>
+</main>
+
+<script src="script.js" defer></script>
+</body>
+</html>
