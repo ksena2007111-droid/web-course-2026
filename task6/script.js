@@ -1,169 +1,213 @@
-const CELL_SIZE = 20;
-const GRID_SIZE = 20;
-const MOVE_INTERVAL = 150;
+(() => {
+  const CELL_SIZE = 20;
+  const GRID_SIZE = 20;
+  const MOVE_INTERVAL = 150;
 
-const canvas = document.getElementById('game');
-const ctx = canvas.getContext('2d');
-const scoreText = document.getElementById('score');
-const gameOverBox = document.getElementById('game-over');
-const finalScoreText = document.getElementById('final-score');
-const restartBtn = document.getElementById('restart-btn');
+  class SnakeModel {
+    constructor(gridSize) {
+      this.gridSize = gridSize;
+      this.reset();
+    }
 
-let snake = [];
-let direction = { x: 1, y: 0 };
-let nextDirection = { x: 1, y: 0 };
-let apple = { x: 0, y: 0 };
-let score = 0;
-let gameOver = false;
+    reset() {
+      this.snake = [
+        { x: 5, y: 10 },
+        { x: 4, y: 10 },
+        { x: 3, y: 10 }
+      ];
+      this.direction = { x: 1, y: 0 };
+      this.nextDirection = { x: 1, y: 0 };
+      this.score = 0;
+      this.gameOver = false;
+      this.apple = this.spawnApple();
+    }
 
-let lastMoveTime = null;
-let animationId = null;
+    spawnApple() {
+      let position;
 
-function startGame() {
-  snake = [
-    { x: 5, y: 10 },
-    { x: 4, y: 10 },
-    { x: 3, y: 10 }
-  ];
-  direction = { x: 1, y: 0 };
-  nextDirection = { x: 1, y: 0 };
-  score = 0;
-  gameOver = false;
-  lastMoveTime = null;
+      do {
+        position = {
+          x: Math.floor(Math.random() * this.gridSize),
+          y: Math.floor(Math.random() * this.gridSize)
+        };
+      } while (this.isOnSnake(position, this.snake));
 
-  scoreText.textContent = 'Счёт: 0';
-  gameOverBox.hidden = true;
+      return position;
+    }
 
-  spawnApple();
+    isOnSnake(cell, body) {
+      return body.some((segment) => segment.x === cell.x && segment.y === cell.y);
+    }
 
-  if (animationId !== null) {
-    cancelAnimationFrame(animationId);
-  }
-  animationId = requestAnimationFrame(gameLoop);
-}
+    changeDirection(newDir) {
+      const isReverse =
+        newDir.x === -this.direction.x && newDir.y === -this.direction.y;
+      if (isReverse) return;
 
-function spawnApple() {
-  let position;
+      this.nextDirection = newDir;
+    }
 
-  do {
-    position = {
-      x: Math.floor(Math.random() * GRID_SIZE),
-      y: Math.floor(Math.random() * GRID_SIZE)
-    };
-  } while (isOnSnake(position, snake));
+    checkCollision(head, body) {
+      const hitWall =
+        head.x < 0 ||
+        head.x >= this.gridSize ||
+        head.y < 0 ||
+        head.y >= this.gridSize;
 
-  apple = position;
-}
+      return hitWall || this.isOnSnake(head, body);
+    }
 
-function isOnSnake(cell, body) {
-  return body.some((segment) => segment.x === cell.x && segment.y === cell.y);
-}
+    moveSnake() {
+      this.direction = this.nextDirection;
 
-function changeDirection(newDir) {
-  const isReverse = newDir.x === -direction.x && newDir.y === -direction.y;
-  if (isReverse) return;
+      const head = {
+        x: this.snake[0].x + this.direction.x,
+        y: this.snake[0].y + this.direction.y
+      };
 
-  nextDirection = newDir;
-}
+      const ateApple = head.x === this.apple.x && head.y === this.apple.y;
+      const bodyToCheck = ateApple ? this.snake : this.snake.slice(0, -1);
 
-function checkCollision(head, body) {
-  const hitWall =
-    head.x < 0 || head.x >= GRID_SIZE || head.y < 0 || head.y >= GRID_SIZE;
+      if (this.checkCollision(head, bodyToCheck)) {
+        this.gameOver = true;
+        return;
+      }
 
-  return hitWall || isOnSnake(head, body);
-}
+      this.snake.unshift(head);
 
-function moveSnake() {
-  direction = nextDirection;
-
-  const head = {
-    x: snake[0].x + direction.x,
-    y: snake[0].y + direction.y
-  };
-
-  const ateApple = head.x === apple.x && head.y === apple.y;
-  const bodyToCheck = ateApple ? snake : snake.slice(0, -1);
-
-  if (checkCollision(head, bodyToCheck)) {
-    endGame();
-    return;
+      if (ateApple) {
+        this.score += 1;
+        this.apple = this.spawnApple();
+      } else {
+        this.snake.pop();
+      }
+    }
   }
 
-  snake.unshift(head);
+  class SnakeView {
+    constructor(cellSize) {
+      this.cellSize = cellSize;
+      this.canvas = document.getElementById('game');
+      this.ctx = this.canvas.getContext('2d');
+      this.scoreText = document.getElementById('score');
+      this.gameOverBox = document.getElementById('game-over');
+      this.finalScoreText = document.getElementById('final-score');
+      this.restartBtn = document.getElementById('restart-btn');
+    }
 
-  if (ateApple) {
-    score += 1;
-    scoreText.textContent = `Счёт: ${score}`;
-    spawnApple();
-  } else {
-    snake.pop();
-  }
-}
+    drawCell(cell, color) {
+      this.ctx.fillStyle = color;
+      this.ctx.fillRect(
+        cell.x * this.cellSize,
+        cell.y * this.cellSize,
+        this.cellSize - 1,
+        this.cellSize - 1
+      );
+    }
 
-function endGame() {
-  gameOver = true;
-  finalScoreText.textContent = `Ваш счёт: ${score}`;
-  gameOverBox.hidden = false;
-}
+    draw(model) {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-function update(currentTime) {
-  if (lastMoveTime === null) {
-    lastMoveTime = currentTime;
-  }
+      this.drawCell(model.apple, '#e0455a');
 
-  if (currentTime - lastMoveTime >= MOVE_INTERVAL) {
-    lastMoveTime = currentTime;
-    moveSnake();
-  }
-}
+      model.snake.forEach((segment, index) => {
+        this.drawCell(segment, index === 0 ? '#3b2a9e' : '#5b3fd6');
+      });
+    }
 
-function drawCell(cell, color) {
-  ctx.fillStyle = color;
-  ctx.fillRect(cell.x * CELL_SIZE, cell.y * CELL_SIZE, CELL_SIZE - 1, CELL_SIZE - 1);
-}
+    updateScore(score) {
+      this.scoreText.textContent = `Счёт: ${score}`;
+    }
 
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+    showGameOver(score) {
+      this.finalScoreText.textContent = `Ваш счёт: ${score}`;
+      this.gameOverBox.hidden = false;
+    }
 
-  drawCell(apple, '#e0455a');
+    hideGameOver() {
+      this.gameOverBox.hidden = true;
+    }
 
-  snake.forEach((segment, index) => {
-    drawCell(segment, index === 0 ? '#3b2a9e' : '#5b3fd6');
-  });
-}
-
-function gameLoop(currentTime) {
-  update(currentTime);
-  draw();
-
-  if (!gameOver) {
-    animationId = requestAnimationFrame(gameLoop);
-  } else {
-    animationId = null;
-  }
-}
-
-document.addEventListener('keydown', (event) => {
-  switch (event.key) {
-    case 'ArrowUp':
-      changeDirection({ x: 0, y: -1 });
-      break;
-    case 'ArrowDown':
-      changeDirection({ x: 0, y: 1 });
-      break;
-    case 'ArrowLeft':
-      changeDirection({ x: -1, y: 0 });
-      break;
-    case 'ArrowRight':
-      changeDirection({ x: 1, y: 0 });
-      break;
-    default:
-      return;
+    onRestart(handler) {
+      this.restartBtn.addEventListener('click', handler);
+    }
   }
 
-  event.preventDefault();
-});
+  class SnakeController {
+    constructor(model, view, moveInterval) {
+      this.model = model;
+      this.view = view;
+      this.moveInterval = moveInterval;
+      this.lastMoveTime = null;
+      this.animationId = null;
+      this.loop = this.loop.bind(this);
+    }
 
-restartBtn.addEventListener('click', startGame);
+    init() {
+      document.addEventListener('keydown', (event) => this.handleKey(event));
+      this.view.onRestart(() => this.start());
+      this.start();
+    }
 
-startGame();
+    start() {
+      this.model.reset();
+      this.lastMoveTime = null;
+
+      this.view.updateScore(this.model.score);
+      this.view.hideGameOver();
+
+      if (this.animationId !== null) {
+        cancelAnimationFrame(this.animationId);
+      }
+      this.animationId = requestAnimationFrame(this.loop);
+    }
+
+    handleKey(event) {
+      const directions = {
+        ArrowUp: { x: 0, y: -1 },
+        ArrowDown: { x: 0, y: 1 },
+        ArrowLeft: { x: -1, y: 0 },
+        ArrowRight: { x: 1, y: 0 }
+      };
+
+      const newDir = directions[event.key];
+      if (!newDir) return;
+
+      event.preventDefault();
+      this.model.changeDirection(newDir);
+    }
+
+    update(currentTime) {
+      if (this.lastMoveTime === null) {
+        this.lastMoveTime = currentTime;
+      }
+
+      if (currentTime - this.lastMoveTime >= this.moveInterval) {
+        this.lastMoveTime = currentTime;
+        this.model.moveSnake();
+        this.view.updateScore(this.model.score);
+
+        if (this.model.gameOver) {
+          this.view.showGameOver(this.model.score);
+        }
+      }
+    }
+
+    loop(currentTime) {
+      this.update(currentTime);
+      this.view.draw(this.model);
+
+      if (!this.model.gameOver) {
+        this.animationId = requestAnimationFrame(this.loop);
+      } else {
+        this.animationId = null;
+      }
+    }
+  }
+
+  const model = new SnakeModel(GRID_SIZE);
+  const view = new SnakeView(CELL_SIZE);
+  const controller = new SnakeController(model, view, MOVE_INTERVAL);
+
+  controller.init();
+})();
