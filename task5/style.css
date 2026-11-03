@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f4f2fb;
+  color: #2b2740;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.app {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.app-title {
+  font-size: 1.8rem;
+  color: #5b3fd6;
+}
+
+.level {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.message {
+  color: #5c5678;
+  min-height: 1.5em;
+  text-align: center;
+}
+
+/* Сетка 2x2 */
+.board {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pad {
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.pad-0 { background-color: #e0455a; }
+.pad-1 { background-color: #3fb8b8; }
+.pad-2 { background-color: #f0b429; }
+.pad-3 { background-color: #5b3fd6; }
+
+/* Подсветка кнопки во время показа и при нажатии */
+.pad.active {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.btn-start {
+  min-height: 44px;
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #5b3fd6;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-start:hover {
+  background-color: #4930b0;
+}
+
+.btn-start:disabled {
+  background-color: #cfc8e8;
+  cursor: not-allowed;
+}

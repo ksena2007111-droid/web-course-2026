@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simon — Лабораторная №5</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="app">
+  <h1 class="app-title">Simon</h1>
+
+  <p id="level" class="level">Уровень: 0</p>
+  <p id="message" class="message">Нажмите «Старт»</p>
+
+  <div class="board">
+    <button type="button" class="pad pad-0" data-index="0" aria-label="Красная"></button>
+    <button type="button" class="pad pad-1" data-index="1" aria-label="Бирюзовая"></button>
+    <button type="button" class="pad pad-2" data-index="2" aria-label="Жёлтая"></button>
+    <button type="button" class="pad pad-3" data-index="3" aria-label="Фиолетовая"></button>
+  </div>
+
+  <button type="button" id="start-btn" class="btn-start">Старт</button>
+</main>
+
+<script src="script.js" defer></script>
+</body>
+</html>
